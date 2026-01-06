@@ -1,4 +1,4 @@
-Word Count with Hadoop Streaming and Python
+Word Count with Hadoop Streaming in Python
 ===
 
 A word count MapReduce implementation in Python for (unprocessed) large English text using Hadoop Streaming API. This project consists of two core Python scripts:
@@ -31,7 +31,7 @@ cat example/WordCountExample.txt | mapper_multiprocessing.py | sort -k1,1 | redu
 hdfs dfs -mkdir -p /test/pyWordCount/input
 
 # Upload local text file to HDFS
-hdfs dfs -put wordCountExample.txt /test/pyWordCount/input/
+hdfs dfs -put example/wordCountExample.txt /test/pyWordCount/input/
 
 # Verify upload
 hdfs dfs -ls /test/pyWordCount/input/
@@ -41,7 +41,7 @@ hdfs dfs -ls /test/pyWordCount/input/
 
 ```bash
 mapred streaming \
-  -files example/mapper_commit.py,example,reducer_commit.py\
+  -files example/mapper_commit.py,example/reducer_commit.py\
   -input /test/pyWordCount/input/wordCountExample.txt \
   -output /test/pyWordCount/output \
   -mapper mapper_commit.py \
