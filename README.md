@@ -50,4 +50,4 @@ mapred streaming \
 
 Notes
 ---
-Due to the fact that Hadoop Streaming **does not guarantee** that the file structure of the uploaded scripts may not be consistent with the local file structure. This inconsistency can cause the internal reference relationships (e.g., imports of local modules, relative path calls) in the `mapper/reducer` scripts to fail. So it is necessary to **restore all the code** referenced by the scripts back before passing them to Hadoop Streaming (e.g. `example/mapper_commit.py` and `example/reducer_commit.py`).
+Hadoop Streaming **does not guarantee** that the file structure of the uploaded scripts is consistent with the local file structure. This inconsistency can cause the internal reference relationships (e.g., imports of local modules, relative path calls) in the `mapper/reducer` scripts to fail. So it is necessary to **restore all the code** referenced by the scripts back before passing them to Hadoop Streaming (e.g. `example/mapper_commit.py` and `example/reducer_commit.py`).
